@@ -8,7 +8,8 @@ Group(***group_id***, group_name, ***user_id*** )
   - Foreign Key userID references User
 
 Eventfolder(***eventfolderID***, folder_name, folder_description, ***group_id***, ***user_id*** ) 
-  - Foreign Key group_id refrences Content
+  - Foreign Key group_id references Content
+  - Foreign Key user_id references User
   
 
 ## Users
