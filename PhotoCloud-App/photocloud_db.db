@@ -1,0 +1,47 @@
+BEGIN TRANSACTION;
+CREATE TABLE IF NOT EXISTS "Users" (
+	"user_id"	INTEGER NOT NULL UNIQUE,
+	"first_name"	TEXT NOT NULL,
+	"last_name"	TEXT NOT NULL,
+	"user_name"	TEXT NOT NULL UNIQUE,
+	"password"	TEXT NOT NULL,
+	PRIMARY KEY("user_id")
+);
+CREATE TABLE IF NOT EXISTS "Content" (
+	"content_id"	INTEGER NOT NULL UNIQUE,
+	"path_name"	TEXT NOT NULL UNIQUE,
+	"date_uploaded"	TEXT,
+	"location"	TEXT,
+	"info"	TEXT,
+	PRIMARY KEY("content_id")
+);
+CREATE TABLE IF NOT EXISTS "Group" (
+	"group_id"	INTEGER NOT NULL UNIQUE,
+	"group_name"	TEXT NOT NULL,
+	"owner_id"	INTEGER NOT NULL UNIQUE,
+	FOREIGN KEY("owner_id") REFERENCES "Users"("user_id"),
+	PRIMARY KEY("group_id")
+);
+CREATE TABLE IF NOT EXISTS "Members" (
+	"group_id"	INTEGER NOT NULL,
+	"user_id"	INTEGER NOT NULL,
+	FOREIGN KEY("group_id") REFERENCES "Group"("group_id"),
+	FOREIGN KEY("user_id") REFERENCES "Users"("user_id")
+);
+CREATE TABLE IF NOT EXISTS "ContentToFolder" (
+	"content_id"	INTEGER NOT NULL,
+	"folder_id"	INTEGER NOT NULL,
+	FOREIGN KEY("folder_id") REFERENCES "EventFolder"("folder_id") ON DELETE CASCADE,
+	FOREIGN KEY("content_id") REFERENCES "Content"("content_id") ON DELETE CASCADE
+);
+CREATE TABLE IF NOT EXISTS "EventFolder" (
+	"folder_id"	INTEGER NOT NULL UNIQUE,
+	"folder_name"	TEXT NOT NULL,
+	"folder_description"	TEXT,
+	"group_id"	INTEGER NOT NULL UNIQUE,
+	"owner_id"	INTEGER NOT NULL UNIQUE,
+	FOREIGN KEY("owner_id") REFERENCES "Users"("user_id") ON DELETE CASCADE,
+	FOREIGN KEY("group_id") REFERENCES "Group"("group_id") ON DELETE CASCADE,
+	PRIMARY KEY("folder_id")
+);
+COMMIT;

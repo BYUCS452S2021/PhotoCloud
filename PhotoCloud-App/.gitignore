@@ -1,6 +1,6 @@
 node_modules/
 .expo/
-npm-debug.*
+npm-debug.*git 
 *.jks
 *.p8
 *.p12
