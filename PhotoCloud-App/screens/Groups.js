@@ -2,19 +2,17 @@ import React from 'react';
 import {View, Text, StyleSheet, Button} from 'react-native'
 
 
-const Login = ({navigation}) => {
+const Groups = ({navigation}) => {
     return (
         <View style={styles.container}>
-            <Button
+            <Text> Display Groups Here</Text>
+            {/* <Button
                 title="Login" 
-                onPress={() => navigation.navigate("Home")}/>
-            <Button 
-                title="Create New Acount"
-                onPress={() => navigation.navigate("Register")}/>
+                onPress={() => navigation.navigate("Home")}/> */}
         </View>
     )
 }
-export default Login;
+export default Groups;
 
 const styles = StyleSheet.create({
     container: {

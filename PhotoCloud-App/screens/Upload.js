@@ -2,19 +2,14 @@ import React from 'react';
 import {View, Text, StyleSheet, Button} from 'react-native'
 
 
-const Login = ({navigation}) => {
+const Upload = ({navigation}) => {
     return (
         <View style={styles.container}>
-            <Button
-                title="Login" 
-                onPress={() => navigation.navigate("Home")}/>
-            <Button 
-                title="Create New Acount"
-                onPress={() => navigation.navigate("Register")}/>
+            <Text> Upload Screen </Text>
         </View>
     )
 }
-export default Login;
+export default Upload;
 
 const styles = StyleSheet.create({
     container: {
