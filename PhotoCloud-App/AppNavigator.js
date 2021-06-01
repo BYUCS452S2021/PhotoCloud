@@ -23,9 +23,9 @@ export default function App() {
   return (
     <NavigationContainer>
         <Stack.Navigator initialRouteName='Login' mode='modal'>
-            <Stack.Screen name="Login" component={Login} />
-            <Stack.Screen name="Register" component={Register} />
-            <Stack.Screen name="Home" component={loggedIn} />
+            <Stack.Screen name="Login" component={Login} options={{headerShown: false}} />
+            <Stack.Screen name="Register" component={Register} options={{headerShown: false}} />
+            <Stack.Screen name="Home" component={loggedIn} options={{headerShown: false}} />
         </Stack.Navigator>
   </NavigationContainer>
 );}
@@ -54,9 +54,9 @@ function loggedIn () {
           activeBackgroundColor: '#2ce2b5',
           activeTintColor: '#040505',
           inactiveTintColor: '#10494e',
-          inactiveBackgroundColor: '#2baec8',
+          inactiveBackgroundColor: '#fff',
       }}>
-        <Tab.Screen name="Home" component={Home} />
+        <Tab.Screen name="Home" component={Home}/>
         <Tab.Screen name="Groups" component={Groups} />
         <Tab.Screen name="Upload" component={Upload}/>
       </Tab.Navigator>

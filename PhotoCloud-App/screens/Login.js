@@ -1,19 +1,24 @@
 import React from 'react';
-import {View, Text, Image, StyleSheet, TextInput, TouchableOpacity, KeyboardAvoidingView} from 'react-native';
+import {View, Text, Image, StyleSheet, TextInput, TouchableOpacity, KeyboardAvoidingView, StatusBar, Dimensions} from 'react-native';
 
+const window = Dimensions.get('window');
+const IMAGE_HEIGHT = window.width / 2;
 
 const Login = ({navigation}) => {
     return (
         <KeyboardAvoidingView
          style={styles.container1}
          behavior='height'>
-            <Image source={require('../assets/logo1.png')} style={styles.logo}/>
+            <StatusBar
+            backgroundColor='orange'
+            barStyle='light-content'/>
             <View
              style={styles.container2}>
+                <Image source={require('../assets/logo1.png')} style={styles.logo}/>
                 <Text style={{fontSize:22, fontWeight: 'bold', paddingBottom: 10}}> Welcome Back</Text>
-                <Text style={{paddingBottom: 20}}> Use your credentials to log into your account </Text>
+                <Text style={{paddingBottom: 30}}> Use your credentials to log into your account </Text>
                 <TextInput style={styles.input} placeholder="i.e. ElonMusk420"/>
-                <TextInput style={styles.input} placeholder="i.e. dogetothemoon"/>
+                <TextInput style={styles.input} placeholder="i.e. dogetothemoon" secureTextEntry/>
                 <View style={styles.button_container}>
                     <TouchableOpacity
                         style = {styles.button}
@@ -28,7 +33,7 @@ const Login = ({navigation}) => {
                     </TouchableOpacity>
                 </View>
             </View>
-            <View style={{flex:.8}}/>
+            <View style={{padding: 40, width:'100%', backgroundColor:'orange'}}/>
         </KeyboardAvoidingView>
     )
 }
@@ -60,28 +65,34 @@ const styles = StyleSheet.create({
         borderRadius:5,
     },
     logo: {
-        flex: 1,
-        width: '60%',
-        height: '100%',
+        // flex: 1,
+        resizeMode: 'contain',
+        width: '80%',
+        height: IMAGE_HEIGHT,
+        padding:5,
+        marginTop:10,
+        backgroundColor: 'orange',
+        alignContent: 'flex-start',
     },
     button_container: {
+        width: '100%',
         flexDirection: 'row',
-        paddingBottom: 20,
-        paddingTop: 20
-
+        paddingBottom: 30,
+        paddingTop: 30,
+        backgroundColor: 'orange',
+        justifyContent: 'center'
     },
     container2: {
-        flex:2,
+        flex:1,
         width: '100%',
         backgroundColor: 'orange',
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'flex-end',
     },
     container1: {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: 'orange'
     }
 })
 
