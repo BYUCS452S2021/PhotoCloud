@@ -31,7 +31,7 @@ const Groups = ({ navigation }) => {
           <View style={styles.container3}>
             <TouchableOpacity
               style={styles.button}
-              onPress={() => console.log("Go to", item.name, "images")}
+              onPress={() => navigation.navigate("Folders")}
             >
               <Text style={styles.buttontext}> {item.name} </Text>
             </TouchableOpacity>

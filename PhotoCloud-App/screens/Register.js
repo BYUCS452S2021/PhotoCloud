@@ -87,42 +87,42 @@ const Register = ({ navigation }) => {
           style={styles.input}
           placeholder="Email Address"
           name="email"
-          value={data.email}
-          onChange={handleChange}
+          //value={data.email}
+          //onChange={handleChange}
         />
         <TextInput
           style={styles.input}
           placeholder="First Name"
           name="firstName"
-          value={data.firstName}
-          onChange={handleChange}
+          // value={data.firstName}
+          //onChange={handleChange}
         />
         <TextInput
           style={styles.input}
           placeholder="Last Name"
           name="lastName"
-          value={data.lastName}
-          onChange={handleChange}
+          // value={data.lastName}
+          //onChange={handleChange}
         />
         <TextInput
           style={styles.input}
           placeholder="Username"
           name="username"
-          value={data.username}
-          onChange={handleChange}
+          // value={data.username}
+          //onChange={handleChange}
         />
         <TextInput
           style={styles.input}
           placeholder="Password"
           name="password"
-          value={data.password}
-          onChange={handleChange}
+          // value={data.password}
+          //onChange={handleChange}
         />
 
         <TouchableOpacity
           style={styles.button}
           onPress={() => {
-            handleSubmit();
+            //handleSubmit();
             navigation.navigate("Login");
           }}
         >

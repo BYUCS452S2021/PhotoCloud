@@ -25,7 +25,7 @@ export default function App() {
       <Stack.Navigator initialRouteName="Login" mode="modal">
         <Stack.Screen
           name="Login"
-          component={Folders}
+          component={Login}
           options={{ headerShown: false }}
         />
         <Stack.Screen
@@ -36,6 +36,11 @@ export default function App() {
         <Stack.Screen
           name="Home"
           component={loggedIn}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Folders"
+          component={Folders}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

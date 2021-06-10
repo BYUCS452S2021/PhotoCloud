@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Button
 } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 
 const Folders = ({ navigation }) => {
   const [dif_groups, setGroups] = useState([
@@ -16,7 +17,16 @@ const Folders = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={{ fontSize: 30, fontWeight: "bold" }}> My Groups </Text>
+      <View style={styles.container4}>
+        <Ionicons
+                style={{ paddingLeft: 10 }}
+                name="arrow-back"
+                size={30}
+                color="black"
+                onPress={() => navigation.goBack()}
+              />
+      </View>
+      <Text style={{ fontSize: 30, fontWeight: "bold" }}> Group Folders </Text>
       <FlatList
         style={styles.container2}
         data={dif_groups}
@@ -31,8 +41,16 @@ const Folders = ({ navigation }) => {
           </View>
         )}
       />
-      <Button title="Home" onPress={() => navigation.navigate("Home")} />
+      <View style={{flex: .3}}>
+      <TouchableOpacity
+              style={styles.button2}
+              onPress={() => console.log("Adding new folder")}
+            >
+              <Text style={styles.buttontext}> Add Folder  </Text>
+            </TouchableOpacity>
     </View>
+      </View>
+      
   );
 };
 
@@ -54,10 +72,27 @@ const styles = StyleSheet.create({
     //alignContent: 'center',
     backgroundColor: "orange"
   },
+  container4: {
+    flexDirection: 'row',
+    alignContent: 'flex-start',
+    justifyContent: 'flex-start',
+  },
   button: {
     width: "100%",
     height: 70,
     backgroundColor: "#31e89e",
+    paddingVertical: 10,
+    paddingHorizontal: 10,
+    paddingBottom: 10,
+    borderRadius: 10,
+    alignContent: "center",
+    justifyContent: "center",
+    marginTop: 25
+  },
+  button2: {
+    width: "35%",
+    height: 70,
+    backgroundColor: "#00FFFF",
     paddingVertical: 10,
     paddingHorizontal: 10,
     paddingBottom: 10,
